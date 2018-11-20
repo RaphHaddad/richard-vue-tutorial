@@ -31,22 +31,8 @@ namespace QuickstartIdentityServer
                     // register your IdentityServer with Google at https://console.developers.google.com
                     // enable the Google+ API
                     // set the redirect URI to http://localhost:port/signin-google
-                    options.ClientId = "copy client ID from Google here";
-                    options.ClientSecret = "copy client secret from Google here";
-                })
-                .AddOpenIdConnect("oidc", "OpenID Connect", options =>
-                {
-                    options.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;
-                    options.SignOutScheme = IdentityServerConstants.SignoutScheme;
-
-                    options.Authority = "https://demo.identityserver.io/";
-                    options.ClientId = "implicit";
-
-                    options.TokenValidationParameters = new TokenValidationParameters
-                    {
-                        NameClaimType = "name",
-                        RoleClaimType = "role"
-                    };
+                    options.ClientId = "782607817800-ecjamergkbkmu6hhtdfi1qm9qbnbnrqp.apps.googleusercontent.com";
+                    options.ClientSecret = "EBUnQiktnQ7JpMCBVqxG7A-U";
                 });
         }
 
