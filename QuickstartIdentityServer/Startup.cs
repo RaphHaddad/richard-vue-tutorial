@@ -31,8 +31,8 @@ namespace QuickstartIdentityServer
                     // register your IdentityServer with Google at https://console.developers.google.com
                     // enable the Google+ API
                     // set the redirect URI to http://localhost:port/signin-google
-                    options.ClientId = "782607817800-ecjamergkbkmu6hhtdfi1qm9qbnbnrqp.apps.googleusercontent.com";
-                    options.ClientSecret = "EBUnQiktnQ7JpMCBVqxG7A-U";
+                    options.ClientId = "379690390547-n6tncb3156o4ce36apfsirg1amfpulc6.apps.googleusercontent.com";
+                    options.ClientSecret = "PUL1AZjpsIVO437ayLF4syqj";
                 });
         }
 
