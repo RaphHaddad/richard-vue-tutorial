@@ -46,7 +46,12 @@ namespace Raph.VueSeries
             }
 
             app.UseAuthentication();
-            app.UseMvc();
+            app.UseMvc(routes =>
+            {
+                routes.MapSpaFallbackRoute(
+                    name: "spa-fallback",
+                    defaults: new { controller = "CatchAll", action = "Index" });
+            });
         }
     }
 }
