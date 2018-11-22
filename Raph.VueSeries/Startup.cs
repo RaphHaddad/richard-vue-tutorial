@@ -46,6 +46,8 @@ namespace Raph.VueSeries
             }
 
             app.UseAuthentication();
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
             app.UseMvc(routes =>
             {
                 routes.MapSpaFallbackRoute(
