@@ -8,6 +8,9 @@ var mgr = new Oidc.UserManager({
     scope: 'openid profile api1',
     post_logout_redirect_uri: 'https://localhost:5000/',
     userStore: new Oidc.WebStorageStateStore({ store: window.localStorage }),
+    automaticSilentRenew: true,
+    silent_redirect_uri: 'https://localhost:5000/static/silent-renew.html',
+    accessTokenExpiringNotificationTime: 10
 })
 
 export default mgr;

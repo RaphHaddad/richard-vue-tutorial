@@ -92,7 +92,6 @@ namespace QuickstartIdentityServer
                     AllowedGrantTypes = GrantTypes.Implicit,
                     AllowAccessTokensViaBrowser = true,
 
-                    RedirectUris = { "https://localhost:5000/callback" },
                     PostLogoutRedirectUris = { "https://localhost:5000/" },
                     AllowedCorsOrigins = { "https://localhost:5000" },
 
@@ -101,6 +100,17 @@ namespace QuickstartIdentityServer
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile,
                         "api1"
+                    },
+
+                    AccessTokenLifetime = 90, // 1.5 minutes
+                    AbsoluteRefreshTokenLifetime = 0,
+                    RefreshTokenUsage = TokenUsage.OneTimeOnly,
+                    RefreshTokenExpiration = TokenExpiration.Sliding,
+                    UpdateAccessTokenClaimsOnRefresh = true,
+                    RequireConsent = false,
+                    RedirectUris = {
+                        "https://localhost:5000/callback",
+                        "https://localhost:5000/static/silent-renew.html"
                     },
                 }
             };

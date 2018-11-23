@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import mgr from './security/security.js'
+import axios from 'axios'
 
 const globalData = {
   isAuthenticated: false,
@@ -32,9 +33,24 @@ const globalMethods = {
         : this.mgr.signinRedirect();
   }
 }
-new Vue({
+let v = new Vue({
   router,
   data: globalData,
   methods: globalMethods,
   render: h => h(App),
 }).$mount('#app')
+
+axios.interceptors.request.use((config) => {
+  const user = v.$root.user;
+  if (user) {
+    const authToken = user.access_token;
+    if (authToken) {
+      config.headers.Authorization = `Bearer ${authToken}`;
+    }
+  }
+  return config;
+},
+(err) => {
+  console.log("error");
+  //What do you want to do when a call fails?
+});
